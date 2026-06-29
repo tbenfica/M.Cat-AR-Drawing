@@ -7,8 +7,12 @@
     "dev": "tsx server.ts",
     "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "start": "node dist/server.cjs",
-    "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "clean": "rm -rf dist server.js logs",
+    "lint": "tsc --noEmit",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:stop": "pm2 stop mcat-air-drawing",
+    "pm2:restart": "pm2 restart mcat-air-drawing",
+    "pm2:logs": "pm2 logs mcat-air-drawing"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
